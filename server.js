@@ -5,6 +5,7 @@ const connectDB = require('./config/db');
 const carRoutes = require('./routes/carRoutes');
 const appointmentsRouter = require('./routes/appointmentRoutes');
 const authRoutes = require('./routes/authRoutes'); // Importa suas rotas de autenticação
+const path = require('path');
 
 
 dotenv.config();
@@ -22,6 +23,10 @@ app.use(cors({
     return callback(new Error('Not allowed by CORS'));
   }
 }));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.use(express.json());
 app.use('/api/cars', carRoutes);
