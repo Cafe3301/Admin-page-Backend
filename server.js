@@ -15,6 +15,11 @@ const app = express();
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : [];
 
+app.get('/', (req, res) => {
+  res.status(200).json({ msg: 'Bem-vindo à nossa API!' });
+});
+
+
 app.use(cors({
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
