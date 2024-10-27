@@ -13,21 +13,11 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',') : [];
-
 app.get('/', (req, res) => {
   res.status(200).json({ msg: 'Bem-vindo à nossa API!' });
 });
 
-
-app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      return callback(null, true);
-    }
-    return callback(new Error('Not allowed by CORS'));
-  }
-}));
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
