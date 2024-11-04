@@ -5,7 +5,7 @@ const appointmentSchema = new mongoose.Schema({
     userCPF: { type: String, required: true },
     userPhone: { type: String, required: true }, 
     userEmail: { type: String, required: true }, 
-    carId: { type: String, required: true }, // Alterado para String
+    carId: { type: String, required: true },
     appointmentDate: { type: Date, required: true },
     status: { type: String, default: 'Agendado' }
 });
