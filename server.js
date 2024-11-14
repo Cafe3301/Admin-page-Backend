@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/cars', carRoutes);
-app.use('/api/appointments', appointmentsRouter);
+app.use('/api/appointments', appointmentsRouter);  // Aqui estamos usando a rota de agendamentos
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
